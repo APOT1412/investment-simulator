@@ -116,11 +116,11 @@ export default function InvestmentSimulation() {
   const [funds, setFunds] = useState(() =>
     PRESET_FUNDS.map((f) => ({
       ...f,
-      initialAmount: f.id === "allworld" ? 408118 : f.id === "sp500" ? 314033 : f.id === "nasdaq" ? 29789 :
-        f.id === "india" ? 21174 : f.id === "fang" ? 29027 : f.id === "japan" ? 2138050 :
-        f.id === "us" ? 255500 : f.id === "espp" ? 500000 : 0,
-      monthlyAmount: f.id === "allworld" ? 50000 : f.id === "sp500" ? 10000 : f.id === "nasdaq" ? 30000 :
-        f.id === "india" ? 20000 : f.id === "fang" ? 10000 : f.id === "espp" ? 67500 : 0,
+      initialAmount: f.id === "allworld" ? 300000 : f.id === "sp500" ? 200000 : f.id === "nasdaq" ? 100000 :
+        f.id === "india" ? 50000 : f.id === "fang" ? 50000 : f.id === "japan" ? 500000 :
+        f.id === "us" ? 200000 : f.id === "espp" ? 300000 : 0,
+      monthlyAmount: f.id === "allworld" ? 50000 : f.id === "sp500" ? 20000 : f.id === "nasdaq" ? 20000 :
+        f.id === "india" ? 10000 : f.id === "fang" ? 10000 : f.id === "espp" ? 50000 : 0,
       rates: { ...f.defaultRate },
     }))
   );
