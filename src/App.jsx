@@ -35,9 +35,9 @@ function NumberInput({ value, onChange, suffix = "円", small = false }) {
     <div style={{
       display: "flex",
       alignItems: "center",
-      background: "rgba(30,30,45,0.5)",
+      background: "rgba(30,45,75,0.5)",
       borderRadius: 10,
-      border: "1px solid rgba(255,255,255,0.08)",
+      border: "1px solid rgba(100,140,200,0.25)",
       padding: small ? "8px 12px" : "10px 14px",
       gap: 6,
     }}>
@@ -71,8 +71,8 @@ function RateInput({ value, onChange }) {
   return (
     <div style={{
       display: "flex", alignItems: "center",
-      background: "rgba(30,30,45,0.5)", borderRadius: 8,
-      border: "1px solid rgba(255,255,255,0.08)", padding: "6px 10px", gap: 4, width: 80,
+      background: "rgba(30,45,75,0.5)", borderRadius: 8,
+      border: "1px solid rgba(100,140,200,0.25)", padding: "6px 10px", gap: 4, width: 80,
     }}>
       <input
         type="text" inputMode="decimal"
@@ -325,7 +325,7 @@ export default function InvestmentSimulation() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(145deg, #0a0a0f 0%, #12121f 40%, #0d1117 100%)",
+      background: "linear-gradient(145deg, #0f1729 0%, #1a2744 50%, #0f1729 100%)",
       color: "#e0e0e0",
       fontFamily: "'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif",
       padding: "32px 20px",
@@ -353,8 +353,8 @@ export default function InvestmentSimulation() {
         {/* Tab Switcher */}
         <div style={{
           display: "flex", gap: 8, marginBottom: 24,
-          background: "rgba(0,0,0,0.3)", borderRadius: 16, padding: 6,
-          border: "1px solid rgba(255,255,255,0.08)",
+          background: "rgba(15,25,50,0.6)", borderRadius: 16, padding: 6,
+          border: "1px solid rgba(100,140,200,0.25)",
         }}>
           <button
             onClick={() => setActiveTab("simulation")}
@@ -388,7 +388,7 @@ export default function InvestmentSimulation() {
         <button onClick={() => setShowSetup(!showSetup)} style={{
           width: "100%", padding: "20px 28px", borderRadius: 16,
           border: "1px solid rgba(78,205,196,0.2)",
-          background: showSetup ? "rgba(78,205,196,0.1)" : "rgba(15,15,25,0.6)",
+          background: showSetup ? "rgba(78,205,196,0.1)" : "rgba(25,40,70,0.6)",
           color: "#4ecdc4", cursor: "pointer", fontSize: 18, fontWeight: 600, marginBottom: 24,
           display: "flex", justifyContent: "space-between", alignItems: "center",
         }}>
@@ -404,8 +404,8 @@ export default function InvestmentSimulation() {
         {/* Setup Panel - 共通 */}
         {showSetup && (
           <div style={{
-            background: "rgba(15,15,25,0.5)", borderRadius: 20,
-            padding: "28px", marginBottom: 28, border: "1px solid rgba(255,255,255,0.06)",
+            background: "rgba(22,35,60,0.6)", borderRadius: 20,
+            padding: "28px", marginBottom: 28, border: "1px solid rgba(100,140,200,0.2)",
           }}>
             <div style={{ marginBottom: 24 }}>
               <div style={{
@@ -436,7 +436,7 @@ export default function InvestmentSimulation() {
                       style={{
                         width: 36, height: 36, borderRadius: 8,
                         border: fund.isForeign ? "1px solid rgba(78,205,196,0.4)" : "1px solid rgba(255,255,255,0.15)",
-                        background: fund.isForeign ? "rgba(78,205,196,0.15)" : "rgba(15,15,25,0.6)",
+                        background: fund.isForeign ? "rgba(78,205,196,0.15)" : "rgba(25,40,70,0.6)",
                         color: fund.isForeign ? "#4ecdc4" : "#666",
                         cursor: "pointer", fontSize: 16,
                         display: "flex", alignItems: "center", justifyContent: "center",
@@ -462,8 +462,8 @@ export default function InvestmentSimulation() {
                 value={newFundName} onChange={(e) => setNewFundName(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && addFund()}
                 style={{
-                  flex: 1, background: "rgba(30,30,45,0.5)",
-                  border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12,
+                  flex: 1, background: "rgba(30,45,75,0.5)",
+                  border: "1px solid rgba(100,140,200,0.25)", borderRadius: 12,
                   padding: "14px 18px", color: "#fff", fontSize: 16, outline: "none",
                 }}
               />
@@ -498,7 +498,7 @@ export default function InvestmentSimulation() {
               <>
                 <button onClick={() => setShowRates(!showRates)} style={{
                   width: "100%", padding: "16px 20px", borderRadius: 14,
-                  border: "1px solid rgba(255,255,255,0.06)", background: "rgba(15,15,25,0.5)",
+                  border: "1px solid rgba(100,140,200,0.2)", background: "rgba(22,35,60,0.6)",
                   color: "#8b8b9e", cursor: "pointer", fontSize: 16, fontWeight: 500,
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                 }}>
@@ -551,8 +551,8 @@ export default function InvestmentSimulation() {
                   {["conservative", "base", "optimistic"].map((key) => (
                     <button key={key} onClick={() => setScenario(key)} style={{
                       flex: 1, padding: "16px 14px", borderRadius: 14,
-                      border: scenario === key ? "2px solid #4ecdc4" : "1px solid rgba(255,255,255,0.08)",
-                      background: scenario === key ? "rgba(78,205,196,0.12)" : "rgba(15,15,25,0.6)",
+                      border: scenario === key ? "2px solid #4ecdc4" : "1px solid rgba(100,140,200,0.25)",
+                      background: scenario === key ? "rgba(78,205,196,0.12)" : "rgba(25,40,70,0.6)",
                       color: scenario === key ? "#4ecdc4" : "#8b8b9e",
                       cursor: "pointer", fontSize: 17, fontWeight: scenario === key ? 700 : 400,
                     }}>{scenarioLabels[key]}</button>
@@ -576,7 +576,7 @@ export default function InvestmentSimulation() {
               {[
                 { label: `${years}年後の総資産`, value: formatYen(finalData.total), color: "#4ecdc4", bg: "rgba(78,205,196,0.08)", border: "rgba(78,205,196,0.15)" },
                 { label: "運用益", value: `+${formatYen(totalGain)}`, color: "#ff6b6b", bg: "rgba(255,107,107,0.08)", border: "rgba(255,107,107,0.15)" },
-                { label: "累計投資額", value: formatYen(finalData.contributed), color: "#aaa", bg: "rgba(15,15,25,0.6)", border: "rgba(255,255,255,0.06)" },
+                { label: "累計投資額", value: formatYen(finalData.contributed), color: "#aaa", bg: "rgba(25,40,70,0.6)", border: "rgba(100,140,200,0.2)" },
               ].map((card) => (
                 <div key={card.label} style={{ background: card.bg, borderRadius: 18, padding: "22px 24px", border: `1px solid ${card.border}` }}>
                   <div style={{ fontSize: 14, color: "#6b6b80", marginBottom: 8 }}>{card.label}</div>
@@ -587,8 +587,8 @@ export default function InvestmentSimulation() {
 
             {/* 3 Scenario Chart */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 22,
-              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 22,
+              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)",
             }}>
               <div style={{ fontSize: 18, fontWeight: 600, color: "#aaa", marginBottom: 20, paddingLeft: 12 }}>3シナリオ比較</div>
               <ResponsiveContainer width="100%" height={360}>
@@ -605,22 +605,22 @@ export default function InvestmentSimulation() {
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} interval={Math.max(1, Math.floor(years / 7))} />
-                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} width={65} />
+                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }} interval={Math.max(1, Math.floor(years / 7))} />
+                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }} width={65} />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null;
                     const d = payload[0]?.payload;
                     return (
-                      <div style={{ background: "rgba(15,15,20,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: "16px 20px", fontSize: 15, color: "#e0e0e0" }}>
+                      <div style={{ background: "rgba(15,25,45,0.95)", border: "1px solid rgba(100,140,200,0.2)", borderRadius: 14, padding: "16px 20px", fontSize: 15, color: "#e0e0e0" }}>
                         <div style={{ fontWeight: 700, marginBottom: 10, fontSize: 17 }}>{d.label}</div>
                         <div style={{ color: "#ffd93d", marginBottom: 6 }}>楽観的: {formatYen(d.optimistic)}</div>
                         <div style={{ color: "#4ecdc4", marginBottom: 6 }}>基本: {formatYen(d.base)}</div>
                         <div style={{ color: "#8b8b9e", marginBottom: 6 }}>保守的: {formatYen(d.conservative)}</div>
-                        <div style={{ color: "#666", marginTop: 10, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 10 }}>投資元本: {formatYen(d.contributed)}</div>
+                        <div style={{ color: "#666", marginTop: 10, borderTop: "1px solid rgba(100,140,200,0.2)", paddingTop: 10 }}>投資元本: {formatYen(d.contributed)}</div>
                       </div>
                     );
                   }} />
-                  <Area type="monotone" dataKey="contributed" fill="rgba(15,15,25,0.6)" stroke="rgba(255,255,255,0.15)" strokeDasharray="4 4" strokeWidth={1} />
+                  <Area type="monotone" dataKey="contributed" fill="rgba(25,40,70,0.6)" stroke="rgba(255,255,255,0.15)" strokeDasharray="4 4" strokeWidth={1} />
                   <Area type="monotone" dataKey="optimistic" fill="url(#gradOpt)" stroke="#ffd93d" strokeWidth={2.5} />
                   <Area type="monotone" dataKey="base" fill="url(#gradBase)" stroke="#4ecdc4" strokeWidth={3} />
                   <Area type="monotone" dataKey="conservative" fill="url(#gradCon)" stroke="#8b8b9e" strokeWidth={2} />
@@ -637,8 +637,8 @@ export default function InvestmentSimulation() {
 
             {/* Breakdown Chart */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 22,
-              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 22,
+              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)",
             }}>
               <div style={{ fontSize: 18, fontWeight: 600, color: "#aaa", marginBottom: 20, paddingLeft: 12 }}>
                 {scenarioLabels[scenario]}シナリオ — 資産内訳推移
@@ -653,13 +653,13 @@ export default function InvestmentSimulation() {
                     ))}
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} interval={Math.max(1, Math.floor(years / 7))} />
-                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} width={65} />
+                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }} interval={Math.max(1, Math.floor(years / 7))} />
+                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 14 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }} width={65} />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null;
                     const d = payload[0]?.payload;
                     return (
-                      <div style={{ background: "rgba(15,15,20,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: "16px 20px", fontSize: 15, color: "#e0e0e0" }}>
+                      <div style={{ background: "rgba(15,25,45,0.95)", border: "1px solid rgba(100,140,200,0.2)", borderRadius: 14, padding: "16px 20px", fontSize: 15, color: "#e0e0e0" }}>
                         <div style={{ fontWeight: 700, marginBottom: 12, fontSize: 17 }}>{d.label}</div>
                         {funds.map((f) => (
                           <div key={f.id} style={{ display: "flex", justifyContent: "space-between", gap: 20, marginBottom: 6 }}>
@@ -667,7 +667,7 @@ export default function InvestmentSimulation() {
                             <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>{formatYen(d[f.id] || 0)}</span>
                           </div>
                         ))}
-                        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 12, paddingTop: 12, display: "flex", justifyContent: "space-between" }}>
+                        <div style={{ borderTop: "1px solid rgba(100,140,200,0.2)", marginTop: 12, paddingTop: 12, display: "flex", justifyContent: "space-between" }}>
                           <span style={{ fontWeight: 600 }}>合計</span>
                           <span style={{ fontWeight: 700, color: "#4ecdc4" }}>{formatYen(d.total)}</span>
                         </div>
@@ -690,8 +690,8 @@ export default function InvestmentSimulation() {
 
             {/* Milestones */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 22,
-              padding: "28px 32px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 22,
+              padding: "28px 32px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)",
             }}>
               <div style={{ fontSize: 18, fontWeight: 600, color: "#aaa", marginBottom: 20 }}>
                 🎯 マイルストーン到達予測（{scenarioLabels[scenario]}）
@@ -702,7 +702,7 @@ export default function InvestmentSimulation() {
                   const reached = y !== undefined && y <= 30;
                   return (
                     <div key={m.label} style={{
-                      background: reached ? "rgba(78,205,196,0.06)" : "rgba(15,15,25,0.5)",
+                      background: reached ? "rgba(78,205,196,0.06)" : "rgba(22,35,60,0.6)",
                       borderRadius: 16, padding: "18px 20px",
                       border: reached ? "1px solid rgba(78,205,196,0.15)" : "1px solid rgba(255,255,255,0.04)",
                       textAlign: "center", opacity: reached ? 1 : 0.35,
@@ -720,15 +720,15 @@ export default function InvestmentSimulation() {
 
             {/* Year Table */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 22,
-              padding: "28px 24px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)", overflowX: "auto",
+              background: "rgba(22,35,60,0.6)", borderRadius: 22,
+              padding: "28px 24px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)", overflowX: "auto",
             }}>
               <div style={{ fontSize: 18, fontWeight: 600, color: "#aaa", marginBottom: 20 }}>
                 📋 年次推移（{scenarioLabels[scenario]}）
               </div>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15, minWidth: 480 }}>
                 <thead>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                  <tr style={{ borderBottom: "1px solid rgba(100,140,200,0.25)" }}>
                     {["年", "総資産", "累計投資", "運用益", "利益率"].map((h) => (
                       <th key={h} style={{ padding: "12px 10px", textAlign: "right", color: "#6b6b80", fontWeight: 600, fontSize: 14 }}>{h}</th>
                     ))}
@@ -744,7 +744,7 @@ export default function InvestmentSimulation() {
                     const gain = d.total - d.contributed;
                     const rate = d.contributed > 0 ? ((gain / d.contributed) * 100).toFixed(1) : "0.0";
                     return (
-                      <tr key={d.year} style={{ borderBottom: "1px solid rgba(15,15,25,0.6)" }}>
+                      <tr key={d.year} style={{ borderBottom: "1px solid rgba(25,40,70,0.6)" }}>
                         <td style={{ padding: "12px 10px", textAlign: "right", color: "#4ecdc4", fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
                           {d.year === 0 ? "現在" : `${d.year}年`}
                         </td>
@@ -776,8 +776,8 @@ export default function InvestmentSimulation() {
           <>
             {/* Scenario Toggles */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 20,
-              padding: "24px 28px", marginBottom: 24, border: "1px solid rgba(255,255,255,0.06)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 20,
+              padding: "24px 28px", marginBottom: 24, border: "1px solid rgba(100,140,200,0.2)",
             }}>
               <div style={{ fontSize: 16, fontWeight: 600, color: "#aaa", marginBottom: 16 }}>
                 📊 表示するシナリオ
@@ -796,9 +796,9 @@ export default function InvestmentSimulation() {
                 {/* 暴落シナリオ */}
                 <label style={{
                   display: "flex", alignItems: "center", gap: 10, padding: "12px 20px",
-                  background: showCrashScenario ? "rgba(255,107,107,0.1)" : "rgba(15,15,25,0.6)",
+                  background: showCrashScenario ? "rgba(255,107,107,0.1)" : "rgba(25,40,70,0.6)",
                   borderRadius: 12, cursor: "pointer",
-                  border: showCrashScenario ? "1px solid rgba(255,107,107,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                  border: showCrashScenario ? "1px solid rgba(255,107,107,0.3)" : "1px solid rgba(100,140,200,0.25)",
                 }}>
                   <input type="checkbox" checked={showCrashScenario} onChange={(e) => setShowCrashScenario(e.target.checked)}
                     style={{ accentColor: "#ff6b6b", width: 18, height: 18 }} />
@@ -809,9 +809,9 @@ export default function InvestmentSimulation() {
                 {/* 円高シナリオ */}
                 <label style={{
                   display: "flex", alignItems: "center", gap: 10, padding: "12px 20px",
-                  background: showYenScenario ? "rgba(255,217,61,0.1)" : "rgba(15,15,25,0.6)",
+                  background: showYenScenario ? "rgba(255,217,61,0.1)" : "rgba(25,40,70,0.6)",
                   borderRadius: 12, cursor: "pointer",
-                  border: showYenScenario ? "1px solid rgba(255,217,61,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                  border: showYenScenario ? "1px solid rgba(255,217,61,0.3)" : "1px solid rgba(100,140,200,0.25)",
                 }}>
                   <input type="checkbox" checked={showYenScenario} onChange={(e) => setShowYenScenario(e.target.checked)}
                     style={{ accentColor: "#ffd93d", width: 18, height: 18 }} />
@@ -822,9 +822,9 @@ export default function InvestmentSimulation() {
                 {/* 貯金のみ */}
                 <label style={{
                   display: "flex", alignItems: "center", gap: 10, padding: "12px 20px",
-                  background: showSavingsOnly ? "rgba(139,139,158,0.1)" : "rgba(15,15,25,0.6)",
+                  background: showSavingsOnly ? "rgba(139,139,158,0.1)" : "rgba(25,40,70,0.6)",
                   borderRadius: 12, cursor: "pointer",
-                  border: showSavingsOnly ? "1px solid rgba(139,139,158,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                  border: showSavingsOnly ? "1px solid rgba(139,139,158,0.3)" : "1px solid rgba(100,140,200,0.25)",
                 }}>
                   <input type="checkbox" checked={showSavingsOnly} onChange={(e) => setShowSavingsOnly(e.target.checked)}
                     style={{ accentColor: "#8b8b9e", width: 18, height: 18 }} />
@@ -837,8 +837,8 @@ export default function InvestmentSimulation() {
             {/* Controls */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 28 }}>
               <div style={{
-                background: "rgba(15,15,25,0.5)", borderRadius: 16,
-                padding: "20px 24px", border: "1px solid rgba(255,255,255,0.06)",
+                background: "rgba(22,35,60,0.6)", borderRadius: 16,
+                padding: "20px 24px", border: "1px solid rgba(100,140,200,0.2)",
               }}>
                 <div style={{ fontSize: 14, color: "#6b6b80", marginBottom: 10, fontWeight: 600 }}>
                   投資期間: <span style={{ color: "#4ecdc4", fontSize: 20 }}>{years}年</span>
@@ -882,9 +882,9 @@ export default function InvestmentSimulation() {
               </div>
 
               <div style={{
-                background: showCrashScenario ? "rgba(255,107,107,0.08)" : "rgba(15,15,25,0.5)",
+                background: showCrashScenario ? "rgba(255,107,107,0.08)" : "rgba(22,35,60,0.6)",
                 borderRadius: 16, padding: "18px 20px",
-                border: showCrashScenario ? "1px solid rgba(255,107,107,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                border: showCrashScenario ? "1px solid rgba(255,107,107,0.2)" : "1px solid rgba(100,140,200,0.2)",
                 opacity: showCrashScenario ? 1 : 0.4,
               }}>
                 <div style={{ fontSize: 12, color: "#6b6b80", marginBottom: 6 }}>📉 暴落</div>
@@ -897,9 +897,9 @@ export default function InvestmentSimulation() {
               </div>
 
               <div style={{
-                background: showYenScenario ? "rgba(255,217,61,0.08)" : "rgba(15,15,25,0.5)",
+                background: showYenScenario ? "rgba(255,217,61,0.08)" : "rgba(22,35,60,0.6)",
                 borderRadius: 16, padding: "18px 20px",
-                border: showYenScenario ? "1px solid rgba(255,217,61,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                border: showYenScenario ? "1px solid rgba(255,217,61,0.2)" : "1px solid rgba(100,140,200,0.2)",
                 opacity: showYenScenario ? 1 : 0.4,
               }}>
                 <div style={{ fontSize: 12, color: "#6b6b80", marginBottom: 6 }}>💴 円高</div>
@@ -912,9 +912,9 @@ export default function InvestmentSimulation() {
               </div>
 
               <div style={{
-                background: showSavingsOnly ? "rgba(139,139,158,0.08)" : "rgba(15,15,25,0.5)",
+                background: showSavingsOnly ? "rgba(139,139,158,0.08)" : "rgba(22,35,60,0.6)",
                 borderRadius: 16, padding: "18px 20px",
-                border: showSavingsOnly ? "1px solid rgba(139,139,158,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                border: showSavingsOnly ? "1px solid rgba(139,139,158,0.2)" : "1px solid rgba(100,140,200,0.2)",
                 opacity: showSavingsOnly ? 1 : 0.4,
               }}>
                 <div style={{ fontSize: 12, color: "#6b6b80", marginBottom: 6 }}>🏦 貯金のみ</div>
@@ -929,8 +929,8 @@ export default function InvestmentSimulation() {
 
             {/* Main Chart */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 22,
-              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 22,
+              padding: "28px 20px 20px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)",
             }}>
               <div style={{ fontSize: 18, fontWeight: 600, color: "#aaa", marginBottom: 20, paddingLeft: 12 }}>
                 📈 シナリオ別 資産推移
@@ -938,9 +938,9 @@ export default function InvestmentSimulation() {
               <ResponsiveContainer width="100%" height={400}>
                 <LineChart data={riskCurrentData} margin={{ top: 10, right: 24, left: 12, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 13 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }}
+                  <XAxis dataKey="label" tick={{ fill: "#666", fontSize: 13 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }}
                     interval={Math.max(1, Math.floor(years / 8))} />
-                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 13 }} axisLine={{ stroke: "rgba(255,255,255,0.06)" }} width={60} />
+                  <YAxis tickFormatter={formatYenShort} tick={{ fill: "#666", fontSize: 13 }} axisLine={{ stroke: "rgba(100,140,200,0.2)" }} width={60} />
                   {(showCrashScenario || showYenScenario) && crashYear <= years && (
                     <ReferenceLine x={`${crashYear}年後`} stroke="#ff6b6b" strokeDasharray="4 4" strokeWidth={2}
                       label={{ value: "⚠️ ショック", position: "top", fill: "#ff6b6b", fontSize: 12 }} />
@@ -949,13 +949,13 @@ export default function InvestmentSimulation() {
                     if (!active || !payload?.length) return null;
                     const d = payload[0]?.payload;
                     return (
-                      <div style={{ background: "rgba(15,15,20,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: "16px 20px", fontSize: 14 }}>
+                      <div style={{ background: "rgba(15,25,45,0.95)", border: "1px solid rgba(100,140,200,0.2)", borderRadius: 14, padding: "16px 20px", fontSize: 14 }}>
                         <div style={{ fontWeight: 700, marginBottom: 12, fontSize: 16 }}>{d.label}</div>
                         <div style={{ color: "#4ecdc4", marginBottom: 6 }}>📈 順調: {formatYen(d.normal)}</div>
                         {showCrashScenario && <div style={{ color: "#ff6b6b", marginBottom: 6 }}>📉 暴落: {formatYen(d.crash)}</div>}
                         {showYenScenario && <div style={{ color: "#ffd93d", marginBottom: 6 }}>💴 円高: {formatYen(d.yen)}</div>}
                         {showSavingsOnly && <div style={{ color: "#8b8b9e", marginBottom: 6 }}>🏦 貯金: {formatYen(d.savings)}</div>}
-                        <div style={{ color: "#666", marginTop: 10, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 10 }}>
+                        <div style={{ color: "#666", marginTop: 10, borderTop: "1px solid rgba(100,140,200,0.2)", paddingTop: 10 }}>
                           投資元本: {formatYen(d.contributed)}
                         </div>
                       </div>
@@ -1063,15 +1063,15 @@ export default function InvestmentSimulation() {
 
             {/* Comparison Table */}
             <div style={{
-              background: "rgba(15,15,25,0.5)", borderRadius: 20,
-              padding: "24px 28px", marginBottom: 28, border: "1px solid rgba(30,30,45,0.5)",
+              background: "rgba(22,35,60,0.6)", borderRadius: 20,
+              padding: "24px 28px", marginBottom: 28, border: "1px solid rgba(30,45,75,0.5)",
             }}>
               <div style={{ fontSize: 16, fontWeight: 600, color: "#aaa", marginBottom: 16 }}>
                 📋 シナリオ別 最終結果比較（{years}年後）
               </div>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15 }}>
                 <thead>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+                  <tr style={{ borderBottom: "1px solid rgba(100,140,200,0.2)" }}>
                     <th style={{ padding: "12px 8px", textAlign: "left", color: "#6b6b80", fontWeight: 600 }}>シナリオ</th>
                     <th style={{ padding: "12px 8px", textAlign: "right", color: "#6b6b80", fontWeight: 600 }}>最終資産</th>
                     <th style={{ padding: "12px 8px", textAlign: "right", color: "#6b6b80", fontWeight: 600 }}>運用益</th>
@@ -1079,13 +1079,13 @@ export default function InvestmentSimulation() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style={{ borderBottom: "1px solid rgba(30,30,45,0.5)" }}>
+                  <tr style={{ borderBottom: "1px solid rgba(30,45,75,0.5)" }}>
                     <td style={{ padding: "14px 8px", color: "#4ecdc4", fontWeight: 600 }}>📈 順調に成長</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: "#fff", fontWeight: 700 }}>{formatYen(riskFinalData.normal)}</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: "#4ecdc4" }}>+{formatYen(riskFinalData.normal - riskFinalData.contributed)}</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: "#4ecdc4" }}>+{formatYen(riskFinalData.normal - riskFinalData.savings)}</td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(30,30,45,0.5)", opacity: showCrashScenario ? 1 : 0.3 }}>
+                  <tr style={{ borderBottom: "1px solid rgba(30,45,75,0.5)", opacity: showCrashScenario ? 1 : 0.3 }}>
                     <td style={{ padding: "14px 8px", color: "#ff6b6b", fontWeight: 600 }}>📉 株式暴落</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: "#fff", fontWeight: 700 }}>{formatYen(riskFinalData.crash)}</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: riskFinalData.crash >= riskFinalData.contributed ? "#4ecdc4" : "#ff6b6b" }}>
@@ -1095,7 +1095,7 @@ export default function InvestmentSimulation() {
                       {riskFinalData.crash >= riskFinalData.savings ? "+" : ""}{formatYen(riskFinalData.crash - riskFinalData.savings)}
                     </td>
                   </tr>
-                  <tr style={{ borderBottom: "1px solid rgba(30,30,45,0.5)", opacity: showYenScenario ? 1 : 0.3 }}>
+                  <tr style={{ borderBottom: "1px solid rgba(30,45,75,0.5)", opacity: showYenScenario ? 1 : 0.3 }}>
                     <td style={{ padding: "14px 8px", color: "#ffd93d", fontWeight: 600 }}>💴 円高</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: "#fff", fontWeight: 700 }}>{formatYen(riskFinalData.yen)}</td>
                     <td style={{ padding: "14px 8px", textAlign: "right", fontFamily: "'JetBrains Mono', monospace", color: riskFinalData.yen >= riskFinalData.contributed ? "#4ecdc4" : "#ff6b6b" }}>
