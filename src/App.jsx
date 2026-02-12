@@ -935,8 +935,8 @@ export default function InvestmentSimulation() {
               <div style={{ fontSize: 20, fontWeight: 600, color: "#bbb", marginBottom: 20, paddingLeft: 12 }}>
                 📈 シナリオ別 資産推移
               </div>
-              <ResponsiveContainer width="100%" height={400}>
-                <LineChart data={riskCurrentData} margin={{ top: 10, right: 24, left: 12, bottom: 0 }}>
+              <ResponsiveContainer width="100%" height={420}>
+                <LineChart data={riskCurrentData} margin={{ top: 35, right: 24, left: 12, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
                   <XAxis dataKey="label" tick={{ fill: "#7a7a90", fontSize: 14 }} axisLine={{ stroke: "rgba(255,255,255,0.1)" }}
                     interval={Math.max(1, Math.floor(years / 8))} />
