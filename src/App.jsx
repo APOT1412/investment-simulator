@@ -218,9 +218,9 @@ export default function InvestmentSimulation() {
   }, [funds]);
 
   const allData = useMemo(() => ({
-    conservative: simulate("conservative", 30),
-    base: simulate("base", 30),
-    optimistic: simulate("optimistic", 30),
+    conservative: simulate("conservative", 50),
+    base: simulate("base", 50),
+    optimistic: simulate("optimistic", 50),
   }), [simulate]);
 
   const chartData = useMemo(() => {
@@ -274,7 +274,7 @@ export default function InvestmentSimulation() {
       contributed: Math.round(contributed),
     });
 
-    for (let y = 1; y <= 30; y++) {
+    for (let y = 1; y <= 50; y++) {
       contributed += annualContrib;
 
       // === 順調シナリオ ===
@@ -563,10 +563,10 @@ export default function InvestmentSimulation() {
                 <div style={{ fontSize: 16, color: "#8a8aa0", marginBottom: 12, fontWeight: 600 }}>
                   期間: <span style={{ color: "#4ecdc4", fontSize: 20 }}>{years}年</span>
                 </div>
-                <input type="range" min={5} max={30} value={years} onChange={(e) => setYears(Number(e.target.value))}
+                <input type="range" min={5} max={50} value={years} onChange={(e) => setYears(Number(e.target.value))}
                   style={{ width: "100%", accentColor: "#4ecdc4", marginTop: 12, height: 10 }} />
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 15, color: "#6a7080", marginTop: 6 }}>
-                  <span>5年</span><span>30年</span>
+                  <span>5年</span><span>50年</span>
                 </div>
               </div>
             </div>
@@ -699,7 +699,7 @@ export default function InvestmentSimulation() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 14 }}>
                 {MILESTONES.map((m) => {
                   const y = milestoneYears[m.label];
-                  const reached = y !== undefined && y <= 30;
+                  const reached = y !== undefined && y <= 50;
                   return (
                     <div key={m.label} style={{
                       background: reached ? "rgba(78,205,196,0.06)" : "rgba(15,15,25,0.5)",
@@ -708,7 +708,7 @@ export default function InvestmentSimulation() {
                       textAlign: "center", opacity: reached ? 1 : 0.35,
                     }}>
                       <div style={{ fontSize: 28, fontWeight: 800, color: reached ? "#4ecdc4" : "#6a7080", fontFamily: "'JetBrains Mono', monospace" }}>
-                        {reached ? `${y}年後` : "30年+"}
+                        {reached ? `${y}年後` : "50年+"}
                       </div>
                       <div style={{ fontSize: 16, color: "#9b9bae", marginTop: 8 }}>{m.label}達成</div>
                       {reached && <div style={{ fontSize: 14, color: "#6a7080", marginTop: 6 }}>({2026 + y}年)</div>}
@@ -843,10 +843,10 @@ export default function InvestmentSimulation() {
                 <div style={{ fontSize: 16, color: "#8a8aa0", marginBottom: 12, fontWeight: 600 }}>
                   投資期間: <span style={{ color: "#4ecdc4", fontSize: 22 }}>{years}年</span>
                 </div>
-                <input type="range" min={5} max={30} value={years} onChange={(e) => setYears(Number(e.target.value))}
+                <input type="range" min={5} max={50} value={years} onChange={(e) => setYears(Number(e.target.value))}
                   style={{ width: "100%", accentColor: "#4ecdc4", height: 8 }} />
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "#6a7080", marginTop: 6 }}>
-                  <span>5年</span><span>30年</span>
+                  <span>5年</span><span>50年</span>
                 </div>
               </div>
 
@@ -857,11 +857,11 @@ export default function InvestmentSimulation() {
                 <div style={{ fontSize: 16, color: "#8a8aa0", marginBottom: 12, fontWeight: 600 }}>
                   ショック発生時期: <span style={{ color: "#ff6b6b", fontSize: 22 }}>{crashYear}年目</span>
                 </div>
-                <input type="range" min={1} max={30} value={crashYear}
+                <input type="range" min={1} max={50} value={crashYear}
                   onChange={(e) => setCrashYear(Number(e.target.value))}
                   style={{ width: "100%", accentColor: "#ff6b6b", height: 8 }} />
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "#6a7080", marginTop: 6 }}>
-                  <span>1年目</span><span>30年目</span>
+                  <span>1年目</span><span>50年目</span>
                 </div>
               </div>
             </div>
